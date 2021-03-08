@@ -1,0 +1,43 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+	id "com.github.johnrengelman.shadow" version "6.1.0"
+	id "java"
+}
+
+group = "frosty.op65n.tech.bedwars"
+version = "0.0.3-PreAlpha"
+
+repositories {
+	mavenCentral()
+	maven { url "https://papermc.io/repo/repository/maven-public/" }
+	maven { url "https://oss.sonatype.org/content/groups/public/" }
+	maven { url "https://repo.mattstudios.me/artifactory/public" }
+	maven { url "https://libraries.minecraft.net/" }
+	maven { url "https://frosty.op65n.tech/maven/" }
+}
+
+dependencies {
+	implementation "com.moandjiezana.toml:toml4j:0.7.2"
+
+	implementation "com.github.frcsty.frozenactions:FrozenActionsJava:1.0.8"
+
+	implementation "me.mattstudios.utils:matt-framework:1.4"
+	implementation "me.mattstudios:mf-msg-bukkit:2.0.2"
+
+	compileOnly "com.mojang:authlib:1.5.21"
+	compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
+}
+
+shadowJar {
+	relocate "com.github.frcsty.frozenactions", "${project.group}.library.actions"
+	relocate "me.mattstudios.mf", "${project.group}.library.mf"
+
+	archiveFileName.set("Bedwars-${project.version}.jar")
+}
+
+processResources {
+	from(sourceSets.main.resources.srcDirs) {
+		filter ReplaceTokens, tokens: [version: version]
+	}
+}

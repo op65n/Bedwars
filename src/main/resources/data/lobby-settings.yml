@@ -1,0 +1,20 @@
+world:
+  spawn:
+    x: 0
+    y: 100
+    z: 0
+  join-actions:
+    - "[MESSAGE] &8[&a+&8] &7{player_name}"
+  quit-actions:
+    - "[MESSAGE] &8[&c-&8] &7{player_name}"
+
+behavior:
+  give-items-on-join:
+    SLIME_BALL:
+      display: "&a&nArena Selector"
+      action: OPEN_SELECTOR
+      slot: 4
+    STICK:
+      display: "&9Punch Stick"
+      enchantments:
+        KNOCKBACK: 1
