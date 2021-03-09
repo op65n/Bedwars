@@ -1,0 +1,29 @@
+generator:
+  IRON:
+    material: [
+        "IRON_INGOT"
+    ]
+    generation-speed: 40
+  GOLD:
+    material: [
+        "GOLD_INGOT"
+    ]
+    generation-speed: 120
+  TEAM:
+    sub-generator: [
+        "IRON", "GOLD"
+    ]
+  DIAMOND:
+    material: [
+        "DIAMOND"
+    ]
+    generation-speed: 200
+  EMERALD:
+    material: [
+        "EMERALD"
+    ]
+    generation-speed: 400
+  AWESOME_GENERATOR:
+    sub-generator: [
+      "IRON", "GOLD", "DIAMOND", "EMERALD"
+    ]

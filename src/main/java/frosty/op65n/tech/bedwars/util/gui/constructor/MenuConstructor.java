@@ -1,5 +1,6 @@
 package frosty.op65n.tech.bedwars.util.gui.constructor;
 
+import frosty.op65n.tech.bedwars.util.ColorUtil;
 import frosty.op65n.tech.bedwars.util.gui.components.ItemBuilder;
 import frosty.op65n.tech.bedwars.util.gui.menu.BaseGui;
 import frosty.op65n.tech.bedwars.util.gui.menu.impl.Gui;
@@ -60,6 +61,8 @@ public final class MenuConstructor {
                 }
 
                 final ItemBuilder builder = ItemBuilder.from(material);
+                builder.setName(ColorUtil.translateLegacy(itemSection.getString("display")));
+                builder.setLore(ColorUtil.translateLegacy(itemSection.getStringList("lore")));
 
                 final GuiItem item = new GuiItem(builder.build(), event -> {
                     final Player viewer = (Player) event.getWhoClicked();

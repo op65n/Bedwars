@@ -1,0 +1,17 @@
+identifier: "test arena 2"
+world: "arena_world_2"
+enabled: true
+
+customization:
+  author-separator: ", "
+  authors: []
+
+behavior:
+  arena-size: 8
+  team-amount: 4
+  team-size: 2
+  game-state:
+    AVAILABLE: "&aWaiting.."
+    IN_GAME: "&cIn Game.."
+    UNAVAILABLE: "&cUnavailable!"
+

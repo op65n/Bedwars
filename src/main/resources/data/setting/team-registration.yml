@@ -1,0 +1,55 @@
+team:
+  RED:
+    color: "&c"
+    material-color: "RED"
+    display: "Red"
+    display-letter: "R"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  YELLOW:
+    color: "&e"
+    material-color: "YELLOW"
+    display: "Yellow"
+    display-letter: "Y"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  AQUA:
+    color: "&b"
+    material-color: "LIGHT_BLUE"
+    display: "Aqua"
+    display-letter: "A"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  BLUE:
+    color: "&9"
+    material-color: "BLUE"
+    display: "Blue"
+    display-letter: "B"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  GREEN:
+    color: "&2"
+    material-color: "GREEN"
+    display: "Green"
+    display-letter: "G"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  LIME_GREEN:
+    color: "&a"
+    material-color: "LIME_GREEN"
+    display: "Lime"
+    display-letter: "G"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  PURPLE:
+    color: "&5"
+    material-color: "PURPLE"
+    display: "Purple"
+    display-letter: "P"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  PINK:
+    color: "&d"
+    material-color: "PINK"
+    display: "Pink"
+    display-letter: "P"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"
+  WHITE:
+    color: "&f"
+    material-color: "WHITE"
+    display: "White"
+    display-letter: "W"
+    symbol: "pol ko bo RP da se lahk kake simbole da namesto crke za tab"

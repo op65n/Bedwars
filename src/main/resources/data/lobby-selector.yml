@@ -11,3 +11,15 @@ items:
     display: "&cClose Selector"
     slot: 22
     action: CLOSE
+
+arena-items:
+  material: LIME_WOOL
+  display: "&fArena&8: &f&n{arena_identifier}"
+  lore:
+    - ""
+    - " &9| &fAuthors: &7{arena_authors}"
+    - " &9| &fSize: &7{arena_team_amount}&8x&7{arena_team_size}"
+    - ""
+    - " &9| &fGame State: {arena_game_state}"
+    - " &9| &fParticipants: &6{arena_participants}&8/&6{arena_size}"
+    - ""
