@@ -1,9 +1,6 @@
 world:
   world-identifier: "bedwars-lobby"
-  spawn:
-    x: 0.5
-    y: 65
-    z: 0.5
+  spawn: "x:0.5 y:65 z:0.5"
   join-actions:
     - "[MESSAGE] &8[&a+&8] &7{player_name}"
   quit-actions:

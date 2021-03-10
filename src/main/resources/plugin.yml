@@ -3,4 +3,6 @@ version: @version@
 main: frosty.op65n.tech.bedwars.BedwarsPlugin
 api-version: 1.16
 author: Frcsty
+load: POSTWORLD
+softdepend: ["Multiverse-Core"]
 

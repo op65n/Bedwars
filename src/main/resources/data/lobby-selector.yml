@@ -19,6 +19,5 @@ arena-items:
     - ""
     - " &9| &fType: &7{arena_type}"
     - ""
-    - " &9| &fGame State: {arena_game_state}"
     - " &9| &fParticipants: &6{arena_participants}&8/&6{arena_size}"
     - ""

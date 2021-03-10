@@ -6,15 +6,17 @@ import frosty.op65n.tech.bedwars.action.ActionExecutable;
 import frosty.op65n.tech.bedwars.action.ActionRegistry;
 import frosty.op65n.tech.bedwars.listener.adapter.ListenerAdapter;
 import frosty.op65n.tech.bedwars.listener.adapter.MethodAdapter;
-import frosty.op65n.tech.bedwars.listener.type.ListenerType;
 import frosty.op65n.tech.bedwars.lobby.setting.LobbySettings;
 import frosty.op65n.tech.bedwars.util.ActionUtil;
 import frosty.op65n.tech.bedwars.util.gui.components.util.ItemNBT;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -34,8 +36,8 @@ public final class LobbyListener implements ListenerAdapter {
     }
 
     @Override
-    public ListenerType getType() {
-        return ListenerType.LOBBY;
+    public World getWorld() {
+        return this.settings.getLobbyWorld();
     }
 
     @Override
@@ -43,7 +45,8 @@ public final class LobbyListener implements ListenerAdapter {
         return new HashSet<>(Arrays.asList(
                 new MethodAdapter("PlayerJoinEvent", onPlayerJoin()),
                 new MethodAdapter("PlayerQuitEvent", onPlayerQuit()),
-                new MethodAdapter("PlayerInteractEvent", onItemUse())
+                new MethodAdapter("PlayerInteractEvent", onItemUse()),
+                new MethodAdapter("PlayerMoveEvent", onPlayerMove())
         ));
     }
 
@@ -81,6 +84,18 @@ public final class LobbyListener implements ListenerAdapter {
                     "{player_name}", player.getName()
             ));
 
+            return true;
+        };
+    }
+
+    private Predicate<Event> onPlayerMove() {
+        return (event) -> {
+            final Player player = ((PlayerMoveEvent) event).getPlayer();
+            final Location location = player.getLocation();
+
+            if (location.getY() > 0) return true;
+
+            player.teleport(this.settings.getSpawnLocation());
             return true;
         };
     }

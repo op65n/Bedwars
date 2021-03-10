@@ -26,7 +26,7 @@ public final class LobbySettings {
 
     public LobbySettings(final FileConfiguration configuration) {
         this.lobbyWorld = Bukkit.getWorld(configuration.getString("world.world-identifier"));
-        this.spawnLocation = LocationUtil.fromSection(lobbyWorld, configuration);
+        this.spawnLocation = LocationUtil.fromString(lobbyWorld, configuration.getString("world.spawn"));
 
         loadItemsOnJoin(configuration);
     }

@@ -20,6 +20,12 @@ public final class ArenaUtil {
 
     private static final BedwarsPlugin PLUGIN = JavaPlugin.getPlugin(BedwarsPlugin.class);
 
+    /**
+     * Constructs gui items for the arena selector
+     *
+     * @param configuration lobby selector configuration
+     * @return Set of items constructed from the loaded arenas
+     */
     @SuppressWarnings("ConstantConditions")
     public static Set<GuiItem> constructArenaItems(final FileConfiguration configuration) {
         final ConfigurationSection section = configuration.getConfigurationSection("arena-items");
@@ -39,7 +45,7 @@ public final class ArenaUtil {
             )));
             builder.setLore(ColorUtil.translateLegacy(Replace.replaceList(
                     section.getStringList("lore"),
-                    "{arena-type}", arena.getType(),
+                    "{arena_type}", arena.getType(),
                     "{arena_team_size}", arena.getTeamSize(),
                     "{arena_participants}", arena.getLobbyParticipants(),
                     "{arena_size}", arena.getSize()

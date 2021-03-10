@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "frosty.op65n.tech.bedwars"
-version = "0.0.5-PreAlpha"
+version = "0.0.6-PreAlpha"
 
 repositories {
 	mavenCentral()

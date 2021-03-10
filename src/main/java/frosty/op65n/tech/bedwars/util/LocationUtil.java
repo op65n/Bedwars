@@ -2,24 +2,20 @@ package frosty.op65n.tech.bedwars.util;
 
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.configuration.ConfigurationSection;
-import org.jetbrains.annotations.Nullable;
 
 public final class LocationUtil {
 
-    public static Location fromSection(final World world, final ConfigurationSection section) {
-        return new Location(
-                world,
-                section.getDouble("x", 0),
-                section.getDouble("y", 100),
-                section.getDouble("z", 0),
-                (float) section.getDouble("yaw", 0),
-                (float) section.getDouble("pitch", 0)
-        );
-    }
-
-    public static Location fromString(final World world, @Nullable final String input) {
-        final Location location = new Location(world, 0, 100, 0);
+    /**
+     * Deserializes a location from the given format, with all params being
+     * optional
+     * ie. "X:10 y:10 z:10 pitch:10 yaw:10"
+     *
+     * @param world the world associated to this location
+     * @param input string input to be deserialized
+     * @return Location from the given string or a default one
+     */
+    public static Location fromString(final World world, final String input) {
+        final Location location = new Location(world, 0.5, 100, 0.5);
         if (input == null) return location;
 
         final String[] components = input.split(" ");
@@ -30,7 +26,8 @@ public final class LocationUtil {
 
             final String key = parts[0];
             final double value = Double.parseDouble(parts[1]);
-            switch (key.toUpperCase()) {
+
+            switch (key.toLowerCase().trim()) {
                 case "x" -> location.setX(value);
                 case "y" -> location.setY(value);
                 case "z" -> location.setZ(value);

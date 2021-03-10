@@ -1,12 +1,12 @@
 package frosty.op65n.tech.bedwars.listener.adapter;
 
-import frosty.op65n.tech.bedwars.listener.type.ListenerType;
+import org.bukkit.World;
 
 import java.util.Set;
 
 public interface ListenerAdapter {
 
-    ListenerType getType();
+    World getWorld();
 
     Set<MethodAdapter> getMethodAdapters();
 
