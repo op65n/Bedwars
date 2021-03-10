@@ -1,17 +1,40 @@
 identifier: "test arena 2"
 world: "arena_world_2"
-enabled: true
+enabled: false
 
-customization:
-  author-separator: ", "
-  authors: []
+settings:
+  arena-type: "Trios"
+  arena-size: 12
+  team-size: 3
 
-behavior:
-  arena-size: 8
-  team-amount: 4
-  team-size: 2
-  game-state:
-    AVAILABLE: "&aWaiting.."
-    IN_GAME: "&cIn Game.."
-    UNAVAILABLE: "&cUnavailable!"
+team:
+  RED:
+    bed-location: "x:-232 y:47 z:18.0"
+    spawn-location: "x:-231.4 y:48 z:36.4 pitch:179.8"
+  BLUE:
+    bed-location: "x:-232 y:47 z:-162"
+    spawn-location: "x:-231.4 y:48 z:-179.5"
+  GREEN:
+    bed-location: "x:-322 y:47 z:-72"
+    spawn-location: "x:-339.6 y:48 z:-71.5 pitch:270"
+  YELLOW:
+    bed-location: "x:-142 y:47 z:-72"
+    spawn-location: "x:-123.5 y:48 z:-71.5 pitch:89.8 yaw:1.5"
+
+generator:
+  TEAM: [
+      "x:-336 y:46 z:-72",
+      "x:-232 y:46 z:32",
+      "x:-128 y:46 z:-72",
+      "x:-232 y:46 z:-176"
+  ]
+  DIAMOND: [
+      "x:-195 y:48 z:-109",
+      "x:-269 y:48 z:-109",
+      "x:-269 y:48 z:-35",
+      "x:-195 y:48 z:-35"
+  ]
+  EMERALD: [
+      "x:-232 y:44 z:-72"
+  ]
 

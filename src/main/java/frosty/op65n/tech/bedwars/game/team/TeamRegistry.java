@@ -1,7 +1,7 @@
-package frosty.op65n.tech.bedwars.arena.team;
+package frosty.op65n.tech.bedwars.game.team;
 
 import frosty.op65n.tech.bedwars.BedwarsPlugin;
-import frosty.op65n.tech.bedwars.arena.team.setting.TeamSetting;
+import frosty.op65n.tech.bedwars.game.team.setting.TeamSetting;
 import frosty.op65n.tech.bedwars.registry.path.PathRegistry;
 import frosty.op65n.tech.bedwars.util.FileUtil;
 import org.bukkit.Bukkit;
@@ -34,6 +34,10 @@ public final class TeamRegistry {
 
             TEAM_REGISTRY.put(key, new TeamSetting(teamSection));
         }
+    }
+
+    public static TeamSetting getSettingFor(final String team) {
+        return TEAM_REGISTRY.get(team);
     }
 
     public static Map<String, TeamSetting> getTeamRegistry() {

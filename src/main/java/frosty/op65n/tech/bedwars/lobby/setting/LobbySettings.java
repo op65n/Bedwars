@@ -25,7 +25,7 @@ public final class LobbySettings {
     private final Set<ItemHolder> givenItemsOnJoin = new HashSet<>();
 
     public LobbySettings(final FileConfiguration configuration) {
-        this.lobbyWorld = Bukkit.getWorld("world");
+        this.lobbyWorld = Bukkit.getWorld(configuration.getString("world.world-identifier"));
         this.spawnLocation = LocationUtil.fromSection(lobbyWorld, configuration);
 
         loadItemsOnJoin(configuration);

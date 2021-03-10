@@ -17,8 +17,7 @@ arena-items:
   display: "&fArena&8: &f&n{arena_identifier}"
   lore:
     - ""
-    - " &9| &fAuthors: &7{arena_authors}"
-    - " &9| &fSize: &7{arena_team_amount}&8x&7{arena_team_size}"
+    - " &9| &fType: &7{arena_type}"
     - ""
     - " &9| &fGame State: {arena_game_state}"
     - " &9| &fParticipants: &6{arena_participants}&8/&6{arena_size}"

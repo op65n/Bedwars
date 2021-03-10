@@ -1,4 +1,4 @@
-package frosty.op65n.tech.bedwars.arena.team.setting;
+package frosty.op65n.tech.bedwars.game.team.setting;
 
 import org.bukkit.configuration.ConfigurationSection;
 
@@ -17,7 +17,6 @@ public final class TeamSetting {
         this.displayLetter = section.getString("display-letter");
         this.symbol = section.getString("symbol");
     }
-
 
     public String getColor() {
         return this.color;

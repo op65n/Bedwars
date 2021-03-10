@@ -1,7 +1,9 @@
 package frosty.op65n.tech.bedwars.registry.object;
 
 import frosty.op65n.tech.bedwars.BedwarsPlugin;
-import frosty.op65n.tech.bedwars.arena.team.TeamRegistry;
+import frosty.op65n.tech.bedwars.game.arena.ArenaRegistry;
+import frosty.op65n.tech.bedwars.game.team.TeamRegistry;
+import frosty.op65n.tech.bedwars.generator.GeneratorRegistry;
 import frosty.op65n.tech.bedwars.registry.Registerable;
 import frosty.op65n.tech.bedwars.util.ActionUtil;
 import frosty.op65n.tech.bedwars.util.FileUtil;
@@ -22,5 +24,7 @@ public final class ObjectRegistration implements Registerable {
         );
 
         TeamRegistry.enable(plugin);
+        GeneratorRegistry.enable(plugin);
+        ArenaRegistry.enable(plugin);
     }
 }

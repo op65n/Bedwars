@@ -10,7 +10,10 @@ public enum PathRegistry {
     ARENA_DIRECTORY("data/arena/"),
 
     // Team
-    TEAM_SETTINGS("data/setting/team-registration.yml")
+    TEAM_SETTINGS("data/setting/team-registration.yml"),
+
+    // Generator
+    GENERATOR_SETTINGS("data/setting/generator-registration.yml")
     ;
 
     private final String path;
