@@ -1,17 +1,17 @@
 package frosty.op65n.tech.bedwars.listener.base;
 
 import frosty.op65n.tech.bedwars.listener.ListenerRegistration;
-import frosty.op65n.tech.bedwars.listener.adapter.MethodAdapter;
+import frosty.op65n.tech.bedwars.listener.adapter.bus.SimpleEventBus;
+import frosty.op65n.tech.bedwars.listener.base.event.PlayerWorldJoinEvent;
+import frosty.op65n.tech.bedwars.listener.base.event.PlayerWorldLeaveEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-
-import java.util.Set;
+import org.bukkit.event.player.*;
+import org.bukkit.plugin.PluginManager;
 
 public final class PlayerListener implements Listener {
 
@@ -32,6 +32,25 @@ public final class PlayerListener implements Listener {
     }
 
     @EventHandler
+    public void onPlayerWorldChange(final PlayerChangedWorldEvent event) {
+        final PluginManager manager = Bukkit.getServer().getPluginManager();
+        final Player player = event.getPlayer();
+
+        manager.callEvent(new PlayerWorldLeaveEvent(player, event.getFrom()));
+        manager.callEvent(new PlayerWorldJoinEvent(player, player.getWorld()));
+    }
+
+    @EventHandler
+    public void onPlayerWorldJoin(final PlayerWorldJoinEvent event) {
+        handle(event, event.getWorld());
+    }
+
+    @EventHandler
+    public void onPlayerWorldLeave(final PlayerWorldLeaveEvent event) {
+        handle(event, event.getWorld());
+    }
+
+    @EventHandler
     public void onPlayerInteract(final PlayerInteractEvent event) {
         handle(event, event.getPlayer().getWorld());
     }
@@ -42,11 +61,10 @@ public final class PlayerListener implements Listener {
     }
 
     private void handle(final Event event, final World world) {
-        final Set<MethodAdapter> methods = registration.getMethodAdaptersForEvent(
-                event.getClass().getSimpleName(), world
-        );
+        final SimpleEventBus eventBus = registration.getEventBusForWorld(world);
 
-        methods.forEach(it -> it.getPredicate().test(event));
+        System.out.println("Executed " + eventBus.getIdentifier().toString());
+        eventBus.post(event);
     }
 
 }

@@ -13,9 +13,9 @@ import frosty.op65n.tech.bedwars.util.gui.menu.impl.Gui;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-public final class ArenaSelectorAction implements ActionExecutable {
+public final class TeamSelectorAction implements ActionExecutable {
 
-    private static final FileConfiguration CONFIGURATION = FileUtil.getConfiguration(PathRegistry.ARENA_SELECTOR.getPath());
+    private static final FileConfiguration CONFIGURATION = FileUtil.getConfiguration(PathRegistry.TEAM_SELECTOR.getPath());
 
     @Override
     public void execute(final Player player) {
@@ -34,5 +34,4 @@ public final class ArenaSelectorAction implements ActionExecutable {
             TaskUtil.queue(() -> gui.open(player));
         });
     }
-
 }

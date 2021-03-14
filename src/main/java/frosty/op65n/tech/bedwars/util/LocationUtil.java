@@ -1,5 +1,6 @@
 package frosty.op65n.tech.bedwars.util;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
@@ -37,6 +38,20 @@ public final class LocationUtil {
         }
 
         return location;
+    }
+
+    /**
+     * Returns a world matching the given input
+     *
+     * @param input world name
+     * @return World or null if none match
+     */
+    public static World getWorldFor(final String input) {
+        if (input == null) {
+            throw new RuntimeException("Could not retrieve a World for the given input as it was null!");
+        }
+
+        return Bukkit.getWorld(input);
     }
 
 }

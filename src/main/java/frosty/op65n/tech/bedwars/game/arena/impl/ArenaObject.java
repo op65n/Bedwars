@@ -1,5 +1,7 @@
 package frosty.op65n.tech.bedwars.game.arena.impl;
 
+import frosty.op65n.tech.bedwars.util.LocationUtil;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,15 +21,26 @@ public final class ArenaObject {
 
     private final Map<String, TeamHolder> teams = new HashMap<>();
 
+    private final Location lobbyLocation;
+
     public ArenaObject(final World world, final FileConfiguration configuration) {
         this.world = world;
-
         this.identifier = configuration.getString("identifier");
-        this.type = configuration.getString("settings.arena-type");
-        this.size = configuration.getInt("settings.arena-size");
-        this.teamSize = configuration.getInt("settings.team-size");
 
-        for (final String key : configuration.getConfigurationSection("team").getKeys(false)) {
+        final ConfigurationSection settingsSection = configuration.getConfigurationSection("settings");
+        if (settingsSection == null)
+            throw new RuntimeException("Missing 'settings' section within the arena configuration!");
+
+        this.lobbyLocation = LocationUtil.fromString(world, settingsSection.getString("lobby-location"));
+        this.type = settingsSection.getString("arena-type");
+        this.size = settingsSection.getInt("arena-size");
+        this.teamSize = settingsSection.getInt("team-size");
+
+        final ConfigurationSection teamsSection = configuration.getConfigurationSection("team");
+        if (teamsSection == null)
+            throw new RuntimeException("Missing 'team' section with the arena configuration!");
+
+        for (final String key : teamsSection.getKeys(false)) {
             final ConfigurationSection section = configuration.getConfigurationSection("team." + key);
             if (section == null) continue;
 
@@ -63,5 +76,9 @@ public final class ArenaObject {
 
     public World getWorld() {
         return this.world;
+    }
+
+    public Location getLobbyLocation() {
+        return lobbyLocation;
     }
 }

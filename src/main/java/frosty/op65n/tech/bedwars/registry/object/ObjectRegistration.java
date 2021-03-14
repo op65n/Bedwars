@@ -15,12 +15,12 @@ public final class ObjectRegistration implements Registerable {
         ActionUtil.getActionHandler().loadDefaults(true);
 
         FileUtil.saveResources(
-                "data/lobby-settings.yml",
-                "data/lobby-selector.yml",
-                "data/setting/team-registration.yml",
-                "data/setting/generator-registration.yml",
-                "data/arena/pog-arena.yml",
-                "data/arena/test-arena.yml"
+                "settings/lobby-settings.yml",
+                "selector/arena-selector.yml",
+                "registration/team-registration.yml",
+                "registration/generator-registration.yml",
+                "arena/pog-arena.yml",
+                "arena/test-arena.yml"
         );
 
         TeamRegistry.enable(plugin);

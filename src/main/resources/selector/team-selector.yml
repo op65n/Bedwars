@@ -1,0 +1,22 @@
+menu-title: "&9Team Selector"
+menu-type: CHEST
+menu-size: 27
+items:
+  filler:
+    material: GRAY_STAINED_GLASS_PANE
+    display: " "
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 19, 20, 21, 23, 24, 25, 26]
+  close:
+    material: STRUCTURE_VOID
+    display: "&cClose Selector"
+    slot: 22
+    action: CLOSE
+
+team-items:
+  material: "{team_material_color}_WOOL"
+  display: "&fTeam&8: {team_color}&n{team_display}"
+  lore:
+    - ""
+    - " &9| &fParticipants &7({team_participants_size}/{team_size})"
+    #- "&7{team_participants- &9* &f}" TODO
+    - ""

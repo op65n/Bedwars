@@ -3,6 +3,7 @@ world: "arena_world_1"
 enabled: true
 
 settings:
+  lobby-location: "x:0 y:64 z:0"
   arena-type: "Duos"
   arena-size: 8
   team-size: 2

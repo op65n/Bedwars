@@ -1,6 +1,6 @@
 identifier: "test arena 2"
 world: "arena_world_2"
-enabled: false
+enabled: true
 
 settings:
   arena-type: "Trios"
@@ -9,15 +9,19 @@ settings:
 
 team:
   RED:
+    generator: TEAM
     bed-location: "x:-232 y:47 z:18.0"
     spawn-location: "x:-231.4 y:48 z:36.4 pitch:179.8"
   BLUE:
+    generator: TEAM
     bed-location: "x:-232 y:47 z:-162"
     spawn-location: "x:-231.4 y:48 z:-179.5"
   GREEN:
+    generator: TEAM
     bed-location: "x:-322 y:47 z:-72"
     spawn-location: "x:-339.6 y:48 z:-71.5 pitch:270"
   YELLOW:
+    generator: TEAM
     bed-location: "x:-142 y:47 z:-72"
     spawn-location: "x:-123.5 y:48 z:-71.5 pitch:89.8 yaw:1.5"
 
